@@ -1,8 +1,8 @@
 export function InputCheck(props) {
-  // podporované typy pro element input
+  // supported types for element input
   const INPUTS = ["checkbox", "radio"];
 
-  // validace typu
+  // type validation
   const type = props.type.toLowerCase();
   const checked = props.checked || "";
 
@@ -13,7 +13,7 @@ export function InputCheck(props) {
   return (
     <div className="form-group form-check">
       <label className="form-check-label">
-        {/* vykreslení s aktuálním typem */}
+        {/* current type render */}
         <input
           type={props.type}
           className="form-check-input"

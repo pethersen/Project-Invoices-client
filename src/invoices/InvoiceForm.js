@@ -159,7 +159,7 @@ const InvoiceForm = () => {
                     items={persons}
                     label="odběratel"
                     prompt="Vyberte odběratele"
-                    value={invoice.buyer.id}
+                    value={invoice.buyer._id}
                     handleChange={(e) => {
                         setInvoice({...invoice, buyer:{ _id: e.target.value}});
                     }}
@@ -169,7 +169,7 @@ const InvoiceForm = () => {
                     items={persons}
                     label="dodavatel"
                     prompt="Vyberte dodavatele"
-                    value={invoice.seller.id}
+                    value={invoice.seller._id}
                     handleChange={(e) => {
                         setInvoice({...invoice, seller: { _id: e.target.value}});
                     }}

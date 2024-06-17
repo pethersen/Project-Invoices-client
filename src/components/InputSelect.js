@@ -4,9 +4,9 @@ export function InputSelect(props) {
   const multiple = props.multiple;
   const required = props.required || false;
 
-  // příznak označení prázdné hodnoty
+  // symptom of selecting an empty value
   const emptySelected = multiple ? props.value?.length === 0 : !props.value;
-  // příznak objektové struktury položek
+  // symptom of object structured items
   const objectItems = props.enum ? false : true;
 
   return (
@@ -21,25 +21,25 @@ export function InputSelect(props) {
         value={props.value}
       >
         {required ? (
-          /* prázdná hodnota zakázaná (pro úpravu záznamu) */
+          /* empty value disabled (for record editing) */
           <option disabled value={emptySelected}>
             {props.prompt}
           </option>
         ) : (
-          /* prázdná hodnota povolená (pro filtrování přehledu) */
+          /* empty value enabled (for overview filtering) */
           <option key={0} value={emptySelected}>
             ({props.prompt})
           </option>
         )}
 
         {objectItems
-          ? /* vykreslení položek jako objektů z databáze (osobnosti) */
+          ? /* rendering items as database objects (persons) */
             props.items.map((item, index) => (
               <option key={required ? index : index + 1} value={item._id}>
                 {item.name}
               </option>
             ))
-          : /* vykreslení položek jako hodnot z výčtu (žánry) */
+          : /* rendering items as enum values (genres) */
             props.items.map((item, index) => (
               <option key={required ? index : index + 1} value={item}>
                 {props.enum[item]}
